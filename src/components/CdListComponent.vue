@@ -49,7 +49,7 @@ export default ({
                 this.cdList = response.data.response;
             })
             .catch((error) => {
-                this.error = `Sorry There is a problem! ${error}`;
+                this.error = ` ${error}`;
             });
         }
     },
