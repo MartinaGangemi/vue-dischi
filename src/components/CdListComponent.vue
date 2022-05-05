@@ -3,16 +3,16 @@
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mt-4" v-if = "!loading === true ">
             <Cd :cd = "cd" v-for=" (cd, index) in cdList" :key="index" />
         </div>
-        <div class="d-flex  justify-content-center align-items-center bg" v-if="!error===false && !loading === true">
-            <h2 class="text-white">  {{error}} </h2>
-        </div>
+        
         <div class=" d-flex flex-column justify-content-center align-items-center bg" v-else>
             <div class="loader"></div>
-            <h2 class="text-white text-center pt-3">...Loading</h2>
+            <h2 class="text-white text-center">...Loading</h2>
         </div>
-        <!-- se il collegamento con axios non funziona -->
-        
 
+        <!-- se il collegamento con axios non funziona -->
+        <div class="mt-5" v-if="!error===false && !loading === true">
+            <h2 class="text-white text-center">  {{error}} </h2>
+        </div>
     </div>
     
 </template>
@@ -49,7 +49,7 @@ export default ({
                 this.cdList = response.data.response;
             })
             .catch((error) => {
-                this.error = ` ${error}`;
+                this.error = `${error}`;
             });
         }
     },
@@ -63,6 +63,7 @@ export default ({
 
 <style lang="scss" scoped>
     .bg{
+        margin-top: 0 ;
         height: calc(100vh - 82px),
     }
 
@@ -78,6 +79,10 @@ export default ({
     @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+    }
+
+    h2{
+        margin: 0;
     }
 
 </style>
