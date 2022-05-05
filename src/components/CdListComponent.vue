@@ -29,7 +29,7 @@ export default ({
 
     data (){
         return {
-        link :"https://flynn.boolean.careers/exercises/api/array/musi",
+        link :"https://flynn.boolean.careers/exercises/api/array/music",
         cdList: null,
         loading: true,
         error: false,
