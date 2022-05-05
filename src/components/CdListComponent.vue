@@ -1,12 +1,18 @@
 <template>
     <div>
-        <div class="row row-cols-5 g-4 mt-4" v-if = "loading === false ">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mt-4" v-if = "!loading === true ">
             <Cd :cd = "cd" v-for=" (cd, index) in cdList" :key="index" />
         </div>
-        <div class="pt-5 row justify-content-center" v-else>
+        
+        <div class=" d-flex flex-column justify-content-center align-items-center bg" v-else>
             <div class="loader"></div>
             <h2 class="text-white text-center pt-3">...Loading</h2>
         </div>
+        <!-- se il collegamento con axios non funziona -->
+        <div v-if="!error===false">
+            <h2 class="text-white">  {{error}} </h2>
+        </div>
+
     </div>
     
 </template>
@@ -26,27 +32,39 @@ export default ({
         link :"https://flynn.boolean.careers/exercises/api/array/music",
         cdList: null,
         loading: true,
-        error: null,
+        error: false,
         };
     },
 
     methods:{
+        timer(){
+            setTimeout(()=>{
+                this.loading = false
+            }, 2000);
+        },
+
         callApi(){
             axios.get(this.link)
             .then((response) =>{
                 this.cdList = response.data.response;
-                this.loading = false;
             })
+            .catch((error) => {
+                this.error = `Sorry There is a problem! ${error}`;
+            });
         }
     },
 
     mounted() {
     this.callApi();
+    this.timer();
     },
 })
 </script>
 
 <style lang="scss" scoped>
+    .bg{
+        height: calc(100vh - 82px),
+    }
 
     .loader {
     border: 10px solid $light;
