@@ -1,8 +1,11 @@
 <template>
-    <div>
-        sono il main
+    <main>
+        <div class="container">
+            
         <CdList />
-    </div>
+        </div>
+        
+    </main>
     
 </template>
 
@@ -15,3 +18,7 @@ export default ({
     }
 })
 </script>
+
+<style lang="scss">
+
+</style>
