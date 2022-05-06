@@ -1,5 +1,5 @@
 <template>
-    <header class="row align-items-center">
+    <header class="d-flex align-items-center">
         <!-- logo -->
         <div class="col logo_img">
             <img src="@/assets/img/logo.png" alt="">
