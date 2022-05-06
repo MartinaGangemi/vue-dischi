@@ -5,24 +5,28 @@
             <img src="@/assets/img/logo.png" alt="">
         </div>
         <!-- form-select -->
-        <div class="col">
-            <Select v-model="genereMusicale" @clicca="search" />
+        <div class="col d-flex">
+            <GenreSelect v-model="genereMusicale" @clicca="search" />
+            <AuthorSelect v-model="artista" @clicca="search" />
         </div>
     </header>
 </template>
 
 <script>
-import Select from "@/components/SelectComponent.vue";
+import GenreSelect from "@/components/SelectComponent.vue";
+import AuthorSelect from "@/components/SelectAuthor.vue";
 import state from "@/state.js";
 export default {
     name:"HeaderComponent",
     components:{
-        Select,
+        GenreSelect,
+        AuthorSelect
     },
 
     data() {
         return {
         genereMusicale: "",
+        artista:""
         };
     },
 
@@ -31,6 +35,8 @@ export default {
       console.log('pincopallo ...');
       state.genereMusicale = this.genereMusicale;
       console.log(state.genereMusicale);
+      state.artista = this.artista;
+      console.log(state.artista);
     },
   },
 

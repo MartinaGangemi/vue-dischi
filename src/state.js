@@ -1,6 +1,7 @@
 import Vue from "vue"
 const state = Vue.observable ({
-    genereMusicale:""
+    genereMusicale:"",
+    artista:""
 })
 
 export default state

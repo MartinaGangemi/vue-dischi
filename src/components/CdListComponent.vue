@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mt-4" v-if = "!loading === true ">
-            <Cd :cd = "cd" v-for=" (cd, index) in filteredGenre" :key="index" />
+            <Cd :cd = "cd" v-for=" (cd, index) in filteredAuthor" :key="index" />
         </div>
         
         <div class=" d-flex flex-column justify-content-center align-items-center bg" v-else>
@@ -60,6 +60,12 @@ export default ({
     filteredGenre(){
         return this.cdList.filter(cd =>{
         return cd.genre.includes(state.genereMusicale)
+        })
+        },
+
+    filteredAuthor(){
+        return this.cdList.filter(cd =>{
+        return cd.author.includes(state.artista)
         })
         }
         
