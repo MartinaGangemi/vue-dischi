@@ -1,17 +1,40 @@
 <template>
-    <header>
+    <header class="row align-items-center">
         <!-- logo -->
-        <div class="logo_img">
+        <div class="col logo_img">
             <img src="@/assets/img/logo.png" alt="">
+        </div>
+        <!-- form-select -->
+        <div class="col">
+            <Select v-model="genereMusicale" @clicca="search" />
         </div>
     </header>
 </template>
 
 <script>
-export default ({
+import Select from "@/components/SelectComponent.vue";
+import state from "@/state.js";
+export default {
     name:"HeaderComponent",
-    
-})
+    components:{
+        Select,
+    },
+
+    data() {
+        return {
+        genereMusicale: "",
+        };
+    },
+
+    methods: {
+    search() {
+      console.log('pincopallo ...');
+      state.genereMusicale = this.genereMusicale;
+      console.log(state.genereMusicale);
+    },
+  },
+
+};
 </script>
 
 <style lang="scss" scoped>

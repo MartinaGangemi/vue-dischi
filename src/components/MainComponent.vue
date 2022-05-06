@@ -11,11 +11,11 @@
 
 <script>
 import CdList from "@/components/CdListComponent.vue"
-export default ({
+export default {
     name:"MainComponent",
     components:{
         CdList,
     }
-})
+}
 </script>
 
